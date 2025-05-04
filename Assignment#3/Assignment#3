@@ -1,0 +1,203 @@
+# Arbish Ali Mohbani               02/24/2025
+# This is the classic turn-based game of NIMGRAB in which players take 1-3 items per turn, and the player who takes the last item loses.
+# Assignment # 3
+
+import random
+
+def main():
+    print("NIMGRAB!\n\nBy: Arbish Ali Mohbani\n[COM S 1270-1]\n")
+    choice1 = ""
+    while (choice1 != "q"):
+        choice1 = input("Do you want to [p]lay, read the [r]ules, or [q]uit: ")
+        if(choice1 == "p"):
+            choice2 = str(" ")
+            while (choice2 != "h" and choice2 != "c"):
+                choice2 = input("Do you want to play against [h]uman or [c]omputer: ")
+                if (choice2 == "h"):
+                    j = 22
+                    while (j!=0):
+                        print("Items Left: "+str(j))
+                        print("∆ "*j)
+                        num_input1 = int(input("How many items do you want to take [1-3]: "))
+                        if(j==3 and num_input1>3):
+                            temp = 1
+                            while(temp!=0):
+                                print("ERROR: Invalid Choice. Please choose again.")
+                                num_input1 = int(input("How many items do you want to take [1-3]: "))
+                                if(num_input1<=3 and num_input1>0):
+                                    print("Player 1 takes: "+str(num_input1))
+                                    j-=num_input1
+                                    print("Items Left: "+str(j))
+                                    print("∆ "*j)
+                                    temp = 0
+                        elif(j==2 and num_input1>2):
+                            temp = 1
+                            while(temp!=0):
+                                print("ERROR: Invalid Choice. Please choose again.")
+                                num_input1 = int(input("How many items do you want to take [1-3]: "))
+                                if(num_input1<=2 and num_input1>0):
+                                    print("Player 1 takes: "+str(num_input1))
+                                    j-=num_input1
+                                    print("Items Left: "+str(j))
+                                    print("∆ "*j)
+                                    temp = 0
+                        elif(j==1 and num_input1!=1):
+                            temp = 1
+                            while(temp!=0):
+                                print("ERROR: Invalid Choice. Please choose again.")
+                                num_input1 = int(input("How many items do you want to take [1-3]: "))
+                                if(num_input1==1):
+                                    print("Player 1 takes: "+str(num_input1))
+                                    j-=num_input1
+                                    print("Items Left: "+str(j))
+                                    print("∆ "*j)
+                                    temp = 0
+                        elif(num_input1>=1 and num_input1<=3):
+                            print("Player 1 takes: "+str(num_input1))
+                            j-=num_input1
+                            print("Items Left: "+str(j))
+                            print("∆ "*j)
+                        else: 
+                            temp = 1
+                            while(temp!=0):
+                                print("ERROR: Invalid Choice. Please choose again.")
+                                num_input1 = int(input("How many items do you want to take [1-3]: "))
+                                if(num_input1>=1 and num_input1<=3):
+                                    print("Player 1 takes: "+str(num_input1))
+                                    j-=num_input1
+                                    print("Items Left: "+str(j))
+                                    print("∆ "*j)
+                                    temp = 0
+                        if(j==0):
+                            exit
+                            print("Player 1 took the last item, Player 2 Won!")
+                            break
+                        num_input2 = int(input("How many items do you want to take [1-3]: "))
+                        if(j==3 and num_input2>3):
+                            temp = 1
+                            while(temp!=0):
+                                print("ERROR: Invalid Choice. Please choose again.")
+                                num_input2 = int(input("How many items do you want to take [1-3]: "))
+                                if(num_input2<=3 and num_input2>0):
+                                    print("Player 2 takes: "+str(num_input2))
+                                    j-=num_input2
+                                    print("Items Left: "+str(j))
+                                    print("∆ "*j)
+                                    temp = 0
+                        elif(j==2 and num_input2>2):
+                            temp = 1
+                            while(temp!=0):
+                                print("ERROR: Invalid Choice. Please choose again.")
+                                num_input2 = int(input("How many items do you want to take [1-3]: "))
+                                if(num_input2<=2 and num_input2>0):
+                                    print("Player 2 takes: "+str(num_input2))
+                                    j-=num_input2
+                                    print("Items Left: "+str(j))
+                                    print("∆ "*j)
+                                    temp = 0
+                        elif(j==1 and num_input2!=1):
+                            temp = 1
+                            while(temp!=0):
+                                print("ERROR: Invalid Choice. Please choose again.")
+                                num_input2 = int(input("How many items do you want to take [1-3]: "))
+                                if(num_input2==1):
+                                    print("Player 2 takes: "+str(num_input2))
+                                    j-=num_input2
+                                    print("Items Left: "+str(j))
+                                    print("∆ "*j)
+                                    temp = 0
+                        elif(num_input2>=1 and num_input2<=3):
+                            print("Player 2 takes: "+str(num_input2))
+                            j-=num_input2
+                        else: 
+                            temp = 1
+                            while(temp!=0):
+                                print("ERROR: Invalid Choice. Please choose again.")
+                                num_input2 = int(input("How many items do you want to take [1-3]: "))
+                                if(num_input2>=1 and num_input2<=3):
+                                    print("Player 2 takes: "+str(num_input2))
+                                    j-=num_input2
+                                    temp = 0
+                        if(j==0):
+                            exit
+                            print("Player 2 took the last item, Player 1 Won!")
+                            break
+                elif (choice2 == "c"):
+                    i = 22
+                    while(i!=0):
+                        print("Items Left: "+str(i))
+                        print("∆ "*i)
+                        num_input1 = int(input("How many items do you want to take [1-3]: "))
+                        if(i==3 and num_input1>=3):
+                            temp = 1
+                            while(temp!=0):
+                                print("ERROR: Invalid Choice. Please choose again.")
+                                num_input1 = int(input("How many items do you want to take [1-3]: "))
+                                if(num_input1<=3 and num_input1>0):
+                                    print("Player 1 takes: "+str(num_input1))
+                                    i-=num_input1
+                                    print("Items Left: "+str(i))
+                                    print("∆ "*i)
+                                    temp = 0
+                        elif(i==2 and num_input1>=2):
+                            temp = 1
+                            while(temp!=0):
+                                print("ERROR: Invalid Choice. Please choose again.")
+                                num_input1 = int(input("How many items do you want to take [1-3]: "))
+                                if(num_input1<=2 and num_input1>0):
+                                    print("Player 1 takes: "+str(num_input1))
+                                    i-=num_input1
+                                    print("Items Left: "+str(i))
+                                    print("∆ "*i)
+                                    temp = 0
+                        elif(i==1 and num_input1!=1):
+                            temp = 1
+                            while(temp!=0):
+                                print("ERROR: Invalid Choice. Please choose again.")
+                                num_input1 = int(input("How many items do you want to take [1-3]: "))
+                                if(num_input1==1):
+                                    print("Player 1 takes: "+str(num_input1))
+                                    i-=num_input1
+                                    print("Items Left: "+str(i))
+                                    print("∆ "*i)
+                                    temp = 0
+                        elif(num_input1>=1 and num_input1<=3):
+                            print("Player 1 takes: "+str(num_input1))
+                            i-=num_input1
+                            print("Items Left: "+str(i))
+                            print("∆ "*i)
+                        else: 
+                            temp = 1
+                            while(temp!=0):
+                                print("ERROR: Invalid Choice. Please choose again.")
+                                num_input1 = int(input("How many items do you want to take [1-3]: "))
+                                if(num_input1>=1 and num_input1<=3):
+                                    print("Player 1 takes: "+str(num_input1))
+                                    i-=num_input1
+                                    print("Items Left: "+str(i))
+                                    print("∆ "*i)
+                                    temp = 0
+                        if(i==0):
+                            exit
+                            print("Player 1 took the last item, Computer Won!")
+                            break
+                        if(i==3):
+                            num_input2 = random.randrange(1, 3)
+                        elif(i<=2):
+                            num_input2 = 1
+                        else:    
+                            num_input2 = random.randrange(1, 4)
+                        print("Computer takes: "+str(num_input2))
+                        i-=num_input2
+                        if(i==0):
+                            exit
+                            print("Computer took the last item, Player 1 Won!")
+                            break
+                        
+        elif(choice1 == "r"):
+            print("These are the rules: \n1. Players take turns removing items from the row.\n2. Your input must be between [1-3].\n3. Players cannot take more items than are currently in the row.\n(Meaning - if there are 2 items in the row, a player cannot take 3 items).\n4. When playing in 1-player mode, the computer should not do anything 'catastrophic'. E.g. there are 3 items left and it takes all 3. In this scenario, it should take 2 (to force the human player to take the last one).\n5. In multi-player mode, player alternate turns.")
+    if(choice1 == "q"):
+            print("GoodBye!")
+
+if __name__ == "__main__":
+    main()
